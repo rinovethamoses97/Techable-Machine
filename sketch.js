@@ -2,7 +2,7 @@ let video;
 let modelUrl="https://teachablemachine.withgoogle.com/models/V-EPERbV/model.json";
 let classifier;
 function preload(){
-    classifier=ml5.imageClassifier("https://teachablemachine.withgoogle.com/models/V-EPERbV/model.json",modelReady)
+    classifier=ml5.imageClassifier(modelUrl,modelReady)
 }
 function setup(){
     createCanvas(300,300);
@@ -22,7 +22,7 @@ function gotResult(err,res){
     fill(255,255,255);
     textAlign(CENTER);
     text(res[0].label,width/2,height);
-    console.log(res[0].confidence);
+    // console.log(res[0].confidence);
 }
 function modelReady(){
     console.log("Model Loaded");
